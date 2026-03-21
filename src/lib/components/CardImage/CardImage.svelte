@@ -36,7 +36,7 @@
 		color: var(--color-primary);
 		font-weight: bold;
 		display: -webkit-box;
-		line-clamp: 2;
+		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 		align-self: start;
