@@ -9,29 +9,23 @@
 	import ToggleRevealButton from '../ToggleRevealButton/ToggleRevealButton.svelte';
 
 	type Props = {
-		japanese: Phrase['japanese'];
-		thai: Phrase['thai'];
-		english: Phrase['english'];
+		phrase: Phrase['phrase'];
+		meaning: Phrase['meaning'];
 		showAnswer: boolean;
 	};
 
-	let { japanese, english, thai, showAnswer = $bindable() }: Props = $props();
+	let { phrase, meaning, showAnswer = $bindable() }: Props = $props();
 </script>
 
 <Card variant="div" borderColor="gray" hasBorderLeft={false}>
 	<Stack size={2} variant="div">
 		<Stack size={1} variant="div">
 			<Typography size={2} variant="p" color="dark" weight="normal" align="center">
-				{japanese}
+				{phrase}
 			</Typography>
-			{#if english}
-				<Typography size={2} variant="p" color="dark" weight="normal" align="center">
-					{english}
-				</Typography>
-			{/if}
 		</Stack>
 		<FlexColumn gap={1} variant="div" alignItems="stretch" justifyContent="center">
-			<VoiceButton text={thai} />
+			<VoiceButton text={phrase} />
 			<ToggleRevealButton
 				expanded={showAnswer}
 				showLabel="👀 回答を見る"
@@ -43,9 +37,9 @@
 		{#if showAnswer}
 			<FlexColumn gap={1} variant="div" alignItems="center" justifyContent="center">
 				<Typography size={3} variant="p" color="primary" weight="bold" align="left">
-					{thai}
+					{phrase}
 				</Typography>
-				<CopyButton text={thai} />
+				<CopyButton text={phrase} />
 			</FlexColumn>
 		{/if}
 	</Stack>

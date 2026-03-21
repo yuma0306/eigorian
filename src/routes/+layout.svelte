@@ -14,16 +14,10 @@
 	<meta name="robots" content="none" />
 	<link rel="canonical" href={`https://${siteData.domain}`} />
 	<title>{siteData.siteName}</title>
-	<meta
-		name="description"
-		content="マイペンサッパロットは、タイ語とタイ文字タイピングを学習するためのサイトです。"
-	/>
+	<meta name="description" content="えいごりあんは英語学習のためのサイトです。" />
 	<!-- ogp -->
 	<meta property="og:title" content={siteData.siteName} />
-	<meta
-		property="og:description"
-		content="マイペンサッパロットは、タイ語とタイ文字タイピングを学習するためのサイトです。"
-	/>
+	<meta property="og:description" content="えいごりあんは英語学習のためのサイトです。" />
 	<meta property="og:locale" content="ja_JP" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={`https://${siteData.domain}`} />

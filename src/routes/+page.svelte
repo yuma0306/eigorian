@@ -9,7 +9,6 @@
 
 	let { data }: { data: PageData } = $props();
 	const situations = $derived(data.situations);
-	const exams = $derived(data.exams);
 </script>
 
 <Inner>
@@ -25,18 +24,6 @@
 						href={paths.situation(situation.id)}
 						title={situation.title}
 					/>
-				{/each}
-			</CardImageList>
-		</Stack>
-		<Stack size={2} variant="section">
-			<Typography size={4} variant="h2" color="secondary" weight="bold" align="center">
-				4択問題
-			</Typography>
-			<CardImageList>
-				{#each exams as exam}
-					{#if exam.title}
-						<CardImage id={exam.id} href={paths.exam(exam.id)} title={exam.title} />
-					{/if}
 				{/each}
 			</CardImageList>
 		</Stack>

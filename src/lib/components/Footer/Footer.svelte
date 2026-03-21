@@ -5,7 +5,7 @@
 
 <footer class="footer">
 	<Inner>
-		<small class="footer__text">&copy; {new Date().getFullYear()} 🍍{siteData.siteName}</small>
+		<small class="footer__text">&copy; {new Date().getFullYear()} {siteData.siteName}</small>
 	</Inner>
 </footer>
 

@@ -3,7 +3,7 @@
 	import SoundIcon from '../Icon/SoundIcon.svelte';
 
 	type Props = {
-		text: Phrase['thai'];
+		text: Phrase['phrase'];
 	};
 
 	let { text }: Props = $props();
@@ -13,7 +13,7 @@
 		if (isSpeaking) return;
 		isSpeaking = true;
 		const utterance = new SpeechSynthesisUtterance(text);
-		utterance.lang = 'th-TH';
+		utterance.lang = 'en-US';
 		utterance.onend = () => {
 			isSpeaking = false;
 		};
@@ -31,9 +31,11 @@
 	});
 </script>
 
-<button onclick={() => speak(text)} class="button" disabled={isSpeaking}>
-	<SoundIcon />
-</button>
+{#if text}
+	<button onclick={() => speak(text)} class="button" disabled={isSpeaking}>
+		<SoundIcon />
+	</button>
+{/if}
 
 <style>
 	.button {
