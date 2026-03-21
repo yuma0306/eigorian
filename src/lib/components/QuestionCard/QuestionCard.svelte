@@ -21,7 +21,7 @@
 	<Stack size={2} variant="div">
 		<Stack size={1} variant="div">
 			<Typography size={2} variant="p" color="dark" weight="normal" align="center">
-				{phrase}
+				{meaning}
 			</Typography>
 		</Stack>
 		<FlexColumn gap={1} variant="div" alignItems="stretch" justifyContent="center">
