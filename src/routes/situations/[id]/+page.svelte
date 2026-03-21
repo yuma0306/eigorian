@@ -14,7 +14,7 @@
 </script>
 
 <Inner>
-	<Crumbs items={[{ text: situation.title, href: paths.situation(situation.id) }]} />
+	<Crumbs items={[{ text: situation.title ?? '', href: paths.situation(situation.id) }]} />
 	<Stack size={3} variant="section">
 		<Typography size={5} variant="h1" color="secondary" weight="bold" align="center">
 			{situation.title}

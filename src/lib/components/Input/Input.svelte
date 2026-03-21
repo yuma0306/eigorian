@@ -14,8 +14,8 @@
 		class="input"
 		bind:value={userInput}
 		oninput={handleInput}
-		placeholder="タイ文字を入力！"
-		lang="th"
+		placeholder="Please input"
+		lang="en"
 		disabled={isCorrect}
 	/>
 </div>

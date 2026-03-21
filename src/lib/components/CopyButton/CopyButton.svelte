@@ -3,7 +3,7 @@
 	import CopyIcon from '../Icon/CopyIcon.svelte';
 
 	type Props = {
-		text: Phrase['thai'];
+		text: Phrase['phrase'];
 	};
 
 	let { text }: Props = $props();
@@ -20,13 +20,15 @@
 	}
 </script>
 
-<button
-	onclick={() => copyToClipboard(text)}
-	class="button"
-	title={copied ? 'コピーしました！' : 'コピー'}
->
-	<CopyIcon />
-</button>
+{#if text}
+	<button
+		onclick={() => copyToClipboard(text)}
+		class="button"
+		title={copied ? 'コピーしました！' : 'コピー'}
+	>
+		<CopyIcon />
+	</button>
+{/if}
 
 <style>
 	.button {

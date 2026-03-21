@@ -5,9 +5,9 @@
 	--color-white: #fff;
 	--color-gray: #c5c5c5;
 	--color-gray-10: color-mix(in srgb, var(--color-gray) 10%, var(--color-white));
-	--color-primary: #2d2a4a;
+	--color-primary: #3c3b6e;
 	--color-primary-10: color-mix(in srgb, var(--color-primary) 10%, var(--color-white));
-	--color-secondary: #a51931;
+	--color-secondary: #b22234;
 	--color-secondary-10: color-mix(in srgb, var(--color-secondary) 10%, var(--color-white));
 	--color-secondary-black: color-mix(in srgb, var(--color-secondary) 60%, var(--color-black));
 	--color-success: #28a745;

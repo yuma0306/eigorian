@@ -18,7 +18,7 @@
 	let props: PageProps = $props();
 	const situation = $derived(props.data.situation);
 	const phrases = $derived(situation.phrases);
-	const total = $derived(phrases.length);
+	const total = $derived(phrases?.length ?? 0);
 
 	let currentIndex = $state(0);
 	let userInput = $state('');
@@ -26,19 +26,19 @@
 	let isCorrect = $state(false);
 	let showAnswer = $state(false);
 
-	const currentPhrase = $derived(phrases[currentIndex]);
+	const currentPhrase = $derived(phrases?.[currentIndex]);
 	const isFinished = $derived(currentIndex >= total);
 	const correctCount = $derived(results.filter((r) => r.correct).length);
 
 	function checkInput() {
-		if (userInput === currentPhrase.thai) {
+		if (userInput === currentPhrase?.phrase) {
 			results.push({ phrase: currentPhrase, correct: true });
 			isCorrect = true;
 		}
 	}
 
 	function skipPhrase() {
-		results.push({ phrase: currentPhrase, correct: false });
+		results.push({ phrase: currentPhrase ?? { fieldId: '' }, correct: false });
 		advance();
 	}
 
@@ -53,7 +53,7 @@
 <Inner>
 	<Crumbs
 		items={[
-			{ text: situation.title, href: paths.situation(situation.id) },
+			{ text: situation.title ?? '', href: paths.situation(situation.id) },
 			{ text: 'レッスン', href: paths.lesson(situation.id) }
 		]}
 	/>
@@ -66,9 +66,8 @@
 				<Progress value={currentIndex} max={total} />
 			</Stack>
 			<QuestionCard
-				japanese={currentPhrase.japanese}
-				english={currentPhrase.english}
-				thai={currentPhrase.thai}
+				phrase={currentPhrase?.phrase ?? ''}
+				meaning={currentPhrase?.meaning ?? ''}
 				bind:showAnswer
 			/>
 			<Input {isCorrect} bind:userInput handleInput={checkInput} />

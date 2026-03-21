@@ -18,24 +18,19 @@
 	<Stack size={1} variant="dl">
 		<FlexColumn gap={1} variant="dt" alignItems="center" justifyContent="start">
 			<Typography size={4} variant="p" color="primary" weight="bold" align="left">
-				{phrase.thai}
+				{phrase.phrase}
 			</Typography>
-			<VoiceButton text={phrase.thai} />
-			<CopyButton text={phrase.thai} />
+			<VoiceButton text={phrase.phrase} />
+			<CopyButton text={phrase.phrase} />
 		</FlexColumn>
 		<Typography size={2} variant="dd" color="dark" weight="normal" align="left">
-			{phrase.japanese}
+			{phrase.meaning}
 		</Typography>
-		{#if phrase.english}
-			<Typography size={2} variant="span" color="dark" weight="normal" align="left">
-				{phrase.english}
-			</Typography>
-		{/if}
 	</Stack>
 	{#if phrase.words && phrase.words.length > 0}
 		<div class="footer">
 			<Stack size={2} variant="ul">
-				{#each phrase.words as word}
+				{#each phrase.words as item}
 					<ListItem symbol="none">
 						<FlexColumn
 							gap={1}
@@ -45,10 +40,10 @@
 							isWrap={true}
 						>
 							<Typography size={2} variant="span" color="primary" weight="bold" align="left">
-								{word.thai}
+								{item.word}
 							</Typography>
 							<Typography size={2} variant="span" color="dark" weight="normal" align="left">
-								{word.meaning}
+								{item.meaning}
 							</Typography>
 							<FlexColumn
 								gap={1}
@@ -57,8 +52,8 @@
 								justifyContent="start"
 								isWrap={true}
 							>
-								<VoiceButton text={word.thai} />
-								<CopyButton text={word.thai} />
+								<VoiceButton text={item.word} />
+								<CopyButton text={item.word} />
 							</FlexColumn>
 						</FlexColumn>
 					</ListItem>
