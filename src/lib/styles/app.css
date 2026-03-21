@@ -1,0 +1,72 @@
+:root {
+	/* カラーパレット */
+	--color-dark: #5d5d5d;
+	--color-black: #000;
+	--color-white: #fff;
+	--color-gray: #c5c5c5;
+	--color-gray-10: color-mix(in srgb, var(--color-gray) 10%, var(--color-white));
+	--color-primary: #2d2a4a;
+	--color-primary-10: color-mix(in srgb, var(--color-primary) 10%, var(--color-white));
+	--color-secondary: #a51931;
+	--color-secondary-10: color-mix(in srgb, var(--color-secondary) 10%, var(--color-white));
+	--color-secondary-black: color-mix(in srgb, var(--color-secondary) 60%, var(--color-black));
+	--color-success: #28a745;
+	--color-success-10: color-mix(in srgb, var(--color-success) 10%, var(--color-white));
+	--color-success-black: color-mix(in srgb, var(--color-success) 60%, var(--color-black));
+	--color-input: #3b82f6;
+	--color-input-10: color-mix(in srgb, var(--color-input) 10%, var(--color-white));
+	--color-warning: #ffc107;
+	--color-warning-10: color-mix(in srgb, var(--color-warning) 10%, var(--color-white));
+
+	/* フォントサイズ */
+	--font-size-1: 12;
+	--font-size-2: 16;
+	--font-size-3: 20;
+	--font-size-4: 24;
+	--font-size-5: 28;
+	--font-size-6: 32;
+
+	/* フォントファミリー */
+	--font-family:
+		-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+	/* 行の高さ */
+	--line-height: 1.4;
+
+	/* スペーシング */
+	--spacing-1: 8;
+	--spacing-2: 16;
+	--spacing-3: 24;
+	--spacing-4: 32;
+	--spacing-5: 40;
+
+	/* ボーダー */
+	--border-radius: 8;
+
+	/* animation */
+	--transition: 0.2s ease-in-out;
+	--scale: 1.2;
+	--opacity: 0.8;
+
+	/* 計算用 */
+	--calc-sp: 100vw / 390;
+}
+
+* {
+	color: var(--color-dark);
+}
+
+body {
+	font-family: var(--font-family);
+	line-height: var(--line-height);
+}
+@media (min-width: 640px) {
+	body {
+		font-size: calc(var(--font-size-1) * 1px);
+	}
+}
+@media (max-width: 639px) {
+	body {
+		font-size: calc(var(--calc-sp) * var(--font-size-1));
+	}
+}
