@@ -8,6 +8,7 @@
 	import Card from '$lib/components/Card/Card.svelte';
 	import Inner from '$lib/components/Inner/Inner.svelte';
 	import Crumbs from '$lib/components/Crumbs/Crumbs.svelte';
+	import YoutubeFrame from '$lib/components/YoutubeFrame/YoutubeFrame.svelte';
 
 	let { data }: { data: PageData } = $props();
 	const situation = $derived(data.situation);
@@ -19,9 +20,9 @@
 		<Typography size={5} variant="h1" color="secondary" weight="bold" align="center">
 			{situation.title}
 		</Typography>
-		<Button color="secondary" variant="a" href={`${paths.lesson(situation.id)}`}>
-			レッスンをスタート
-		</Button>
+		{#if situation.youtubeId}
+			<YoutubeFrame youtubeId={situation.youtubeId} />
+		{/if}
 		<Stack size={2} variant="ul">
 			{#each situation.phrases as phrase}
 				<Card variant="li" borderColor="gray" hasBorderLeft={true}>
@@ -29,5 +30,8 @@
 				</Card>
 			{/each}
 		</Stack>
+		<Button color="secondary" variant="a" href={`${paths.lesson(situation.id)}`}>
+			レッスンをスタート
+		</Button>
 	</Stack>
 </Inner>
