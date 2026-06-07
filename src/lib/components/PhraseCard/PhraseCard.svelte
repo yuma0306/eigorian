@@ -9,16 +9,17 @@ import VoiceButton from '../VoiceButton/VoiceButton.svelte';
 
 type CardProps = {
 	phrase: Phrase;
+	showEnglish?: boolean;
 };
 
-let { phrase }: CardProps = $props();
+let { phrase, showEnglish = true }: CardProps = $props();
 </script>
 
 <div class="card" data-has-words={phrase.words && phrase.words.length > 0}>
 	<Stack size={1} variant="dl">
 		<FlexColumn gap={1} variant="dt" alignItems="center" justifyContent="start">
 			<Typography size={4} variant="p" color="primary" weight="bold" align="left">
-				{phrase.phrase}
+				<span class="english-text" data-masked={!showEnglish}>{phrase.phrase}</span>
 			</Typography>
 			<VoiceButton text={phrase.phrase} />
 			<CopyButton text={phrase.phrase} />
@@ -40,7 +41,7 @@ let { phrase }: CardProps = $props();
 							isWrap={true}
 						>
 							<Typography size={2} variant="span" color="primary" weight="bold" align="left">
-								{item.word}
+								<span class="english-text" data-masked={!showEnglish}>{item.word}</span>
 							</Typography>
 							<Typography size={2} variant="span" color="dark" weight="normal" align="left">
 								{item.meaning}
@@ -69,6 +70,18 @@ let { phrase }: CardProps = $props();
 	display: grid;
 	align-items: start;
 	background-color: var(--color-white);
+}
+.english-text {
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	text-align: inherit;
+}
+.english-text[data-masked="true"] {
+	display: inline-block;
+	color: transparent;
+	background-color: var(--color-gray);
+	user-select: none;
 }
 @media (min-width: 640px) {
 	.card {
