@@ -1,5 +1,5 @@
-import { getSituationById } from '$lib/microcms';
 import { error } from '@sveltejs/kit';
+import { getSituationById } from '$lib/microcms';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {

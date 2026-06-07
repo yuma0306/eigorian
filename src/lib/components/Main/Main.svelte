@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 
-	type Props = {
-		children: Snippet;
-	};
+type Props = {
+	children: Snippet;
+};
 
-	let { children }: Props = $props();
+let { children }: Props = $props();
 </script>
 
 <main class="main">
@@ -13,19 +13,19 @@
 </main>
 
 <style>
+.main {
+	position: relative;
+	flex: 1;
+	background-color: var(--color-primary-5);
+}
+@media (min-width: 640px) {
 	.main {
-		position: relative;
-		flex: 1;
-		background-color: var(--color-primary-5);
+		padding: calc(var(--spacing-5) * 1px) calc(var(--spacing-2) * 1px);
 	}
-	@media (min-width: 640px) {
-		.main {
-			padding: calc(var(--spacing-5) * 1px) calc(var(--spacing-2) * 1px);
-		}
+}
+@media (max-width: 639px) {
+	.main {
+		padding: calc(var(--calc-sp) * var(--spacing-5)) calc(var(--calc-sp) * var(--spacing-2));
 	}
-	@media (max-width: 639px) {
-		.main {
-			padding: calc(var(--calc-sp) * var(--spacing-5)) calc(var(--calc-sp) * var(--spacing-2));
-		}
-	}
+}
 </style>

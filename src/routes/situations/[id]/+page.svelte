@@ -1,17 +1,17 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import Stack from '$lib/components/Stack/Stack.svelte';
-	import Typography from '$lib/components/Typography/Typography.svelte';
-	import { paths } from '$lib/constants/paths';
-	import Button from '$lib/components/Button/Button.svelte';
-	import PhraseCard from '$lib/components/PhraseCard/PhraseCard.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
-	import Inner from '$lib/components/Inner/Inner.svelte';
-	import Crumbs from '$lib/components/Crumbs/Crumbs.svelte';
-	import YoutubeFrame from '$lib/components/YoutubeFrame/YoutubeFrame.svelte';
+import Button from '$lib/components/Button/Button.svelte';
+import Card from '$lib/components/Card/Card.svelte';
+import Crumbs from '$lib/components/Crumbs/Crumbs.svelte';
+import Inner from '$lib/components/Inner/Inner.svelte';
+import PhraseCard from '$lib/components/PhraseCard/PhraseCard.svelte';
+import Stack from '$lib/components/Stack/Stack.svelte';
+import Typography from '$lib/components/Typography/Typography.svelte';
+import YoutubeFrame from '$lib/components/YoutubeFrame/YoutubeFrame.svelte';
+import { paths } from '$lib/constants/paths';
+import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
-	const situation = $derived(data.situation);
+let { data }: { data: PageData } = $props();
+const situation = $derived(data.situation);
 </script>
 
 <Inner>
@@ -24,7 +24,7 @@
 			<YoutubeFrame youtubeId={situation.youtubeId} />
 		{/if}
 		<Stack size={2} variant="ul">
-			{#each situation.phrases as phrase}
+			{#each situation.phrases as phrase, index (index)}
 				<Card variant="li" borderColor="gray" hasBorderLeft={true}>
 					<PhraseCard {phrase} />
 				</Card>

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 
-	type Props = {
-		children: Snippet;
-	};
+type Props = {
+	children: Snippet;
+};
 
-	let { children }: Props = $props();
+let { children }: Props = $props();
 </script>
 
 <div class="list">
@@ -13,17 +13,17 @@
 </div>
 
 <style>
-	.list {
-		display: grid;
-		width: 100%;
-		justify-content: center;
-		@media (min-width: 640px) {
-			grid-template-columns: repeat(auto-fit, max(193px));
-			gap: calc(var(--spacing-1) * 1px);
-		}
-		@media (max-width: 639px) {
-			grid-template-columns: repeat(auto-fit, max(calc(var(--calc-sp) * 114)));
-			gap: calc(var(--calc-sp) * var(--spacing-1));
-		}
+.list {
+	display: grid;
+	width: 100%;
+	justify-content: center;
+	@media (min-width: 640px) {
+		grid-template-columns: repeat(auto-fit, max(193px));
+		gap: calc(var(--spacing-1) * 1px);
 	}
+	@media (max-width: 639px) {
+		grid-template-columns: repeat(auto-fit, max(calc(var(--calc-sp) * 114)));
+		gap: calc(var(--calc-sp) * var(--spacing-1));
+	}
+}
 </style>

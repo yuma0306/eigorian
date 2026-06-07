@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import CardImageList from '$lib/components/CardImageList/CardImageList.svelte';
-	import Stack from '$lib/components/Stack/Stack.svelte';
-	import CardImage from '$lib/components/CardImage/CardImage.svelte';
-	import Typography from '$lib/components/Typography/Typography.svelte';
-	import { paths } from '$lib/constants/paths';
-	import Inner from '$lib/components/Inner/Inner.svelte';
+import CardImage from '$lib/components/CardImage/CardImage.svelte';
+import CardImageList from '$lib/components/CardImageList/CardImageList.svelte';
+import Inner from '$lib/components/Inner/Inner.svelte';
+import Stack from '$lib/components/Stack/Stack.svelte';
+import Typography from '$lib/components/Typography/Typography.svelte';
+import { paths } from '$lib/constants/paths';
+import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
-	const situations = $derived(data.situations);
+let { data }: { data: PageData } = $props();
+const situations = $derived(data.situations);
 </script>
 
 <Inner>
@@ -18,12 +18,8 @@
 				フレーズ
 			</Typography>
 			<CardImageList>
-				{#each situations as situation}
-					<CardImage
-						id={situation.id}
-						href={paths.situation(situation.id)}
-						title={situation.title}
-					/>
+				{#each situations as situation (situation.id)}
+					<CardImage href={paths.situation(situation.id)} title={situation.title} />
 				{/each}
 			</CardImageList>
 		</Stack>

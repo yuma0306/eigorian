@@ -1,20 +1,20 @@
 <script lang="ts">
-	import Card from '../Card/Card.svelte';
-	import FlexColumn from '../FlexColumn/FlexColumn.svelte';
-	import Stack from '../Stack/Stack.svelte';
-	import Typography from '../Typography/Typography.svelte';
-	import VoiceButton from '../VoiceButton/VoiceButton.svelte';
-	import type { Phrase } from '$lib/types';
-	import CopyButton from '../CopyButton/CopyButton.svelte';
-	import ToggleRevealButton from '../ToggleRevealButton/ToggleRevealButton.svelte';
+import type { Phrase } from '$lib/types';
+import Card from '../Card/Card.svelte';
+import CopyButton from '../CopyButton/CopyButton.svelte';
+import FlexColumn from '../FlexColumn/FlexColumn.svelte';
+import Stack from '../Stack/Stack.svelte';
+import ToggleRevealButton from '../ToggleRevealButton/ToggleRevealButton.svelte';
+import Typography from '../Typography/Typography.svelte';
+import VoiceButton from '../VoiceButton/VoiceButton.svelte';
 
-	type Props = {
-		phrase: Phrase['phrase'];
-		meaning: Phrase['meaning'];
-		showAnswer: boolean;
-	};
+type Props = {
+	phrase: Phrase['phrase'];
+	meaning: Phrase['meaning'];
+	showAnswer: boolean;
+};
 
-	let { phrase, meaning, showAnswer = $bindable() }: Props = $props();
+let { phrase, meaning, showAnswer = $bindable() }: Props = $props();
 </script>
 
 <Card variant="div" borderColor="gray" hasBorderLeft={false}>

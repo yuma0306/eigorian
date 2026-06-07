@@ -1,53 +1,53 @@
 <script lang="ts">
-	import type { LessonResult } from '$lib/types';
-	import type { PageProps } from './$types';
-	import Stack from '$lib/components/Stack/Stack.svelte';
-	import Typography from '$lib/components/Typography/Typography.svelte';
-	import Button from '$lib/components/Button/Button.svelte';
-	import { paths } from '$lib/constants/paths';
-	import QuestionCard from '$lib/components/QuestionCard/QuestionCard.svelte';
-	import Progress from '$lib/components/Progress/Progress.svelte';
-	import Inner from '$lib/components/Inner/Inner.svelte';
-	import SkipButton from '$lib/components/SkipButton/SkipButton.svelte';
-	import ScoreCard from '$lib/components/ScoreCard/ScoreCard.svelte';
-	import Input from '$lib/components/Input/Input.svelte';
-	import PhraseCard from '$lib/components/PhraseCard/PhraseCard.svelte';
-	import Card from '$lib/components/Card/Card.svelte';
-	import Crumbs from '$lib/components/Crumbs/Crumbs.svelte';
+import Button from '$lib/components/Button/Button.svelte';
+import Card from '$lib/components/Card/Card.svelte';
+import Crumbs from '$lib/components/Crumbs/Crumbs.svelte';
+import Inner from '$lib/components/Inner/Inner.svelte';
+import Input from '$lib/components/Input/Input.svelte';
+import PhraseCard from '$lib/components/PhraseCard/PhraseCard.svelte';
+import Progress from '$lib/components/Progress/Progress.svelte';
+import QuestionCard from '$lib/components/QuestionCard/QuestionCard.svelte';
+import ScoreCard from '$lib/components/ScoreCard/ScoreCard.svelte';
+import SkipButton from '$lib/components/SkipButton/SkipButton.svelte';
+import Stack from '$lib/components/Stack/Stack.svelte';
+import Typography from '$lib/components/Typography/Typography.svelte';
+import { paths } from '$lib/constants/paths';
+import type { LessonResult } from '$lib/types';
+import type { PageProps } from './$types';
 
-	let props: PageProps = $props();
-	const situation = $derived(props.data.situation);
-	const phrases = $derived(situation.phrases);
-	const total = $derived(phrases?.length ?? 0);
+let props: PageProps = $props();
+const situation = $derived(props.data.situation);
+const phrases = $derived(situation.phrases);
+const total = $derived(phrases?.length ?? 0);
 
-	let currentIndex = $state(0);
-	let userInput = $state('');
-	let results: LessonResult[] = $state([]);
-	let isCorrect = $state(false);
-	let showAnswer = $state(false);
+let currentIndex = $state(0);
+let userInput = $state('');
+let results: LessonResult[] = $state([]);
+let isCorrect = $state(false);
+let showAnswer = $state(false);
 
-	const currentPhrase = $derived(phrases?.[currentIndex]);
-	const isFinished = $derived(currentIndex >= total);
-	const correctCount = $derived(results.filter((r) => r.correct).length);
+const currentPhrase = $derived(phrases?.[currentIndex]);
+const isFinished = $derived(currentIndex >= total);
+const correctCount = $derived(results.filter((r) => r.correct).length);
 
-	function checkInput() {
-		if (userInput === currentPhrase?.phrase) {
-			results.push({ phrase: currentPhrase, correct: true });
-			isCorrect = true;
-		}
+function checkInput() {
+	if (userInput === currentPhrase?.phrase) {
+		results.push({ phrase: currentPhrase, correct: true });
+		isCorrect = true;
 	}
+}
 
-	function skipPhrase() {
-		results.push({ phrase: currentPhrase ?? { fieldId: '' }, correct: false });
-		advance();
-	}
+function skipPhrase() {
+	results.push({ phrase: currentPhrase ?? { fieldId: '' }, correct: false });
+	advance();
+}
 
-	function advance() {
-		currentIndex++;
-		userInput = '';
-		isCorrect = false;
-		showAnswer = false;
-	}
+function advance() {
+	currentIndex++;
+	userInput = '';
+	isCorrect = false;
+	showAnswer = false;
+}
 </script>
 
 <Inner>
@@ -61,7 +61,8 @@
 		<Stack size={3} variant="section">
 			<Stack size={1} variant="div">
 				<Typography size={2} variant="p" color="dark" weight="bold" align="center">
-					{currentIndex + 1} / {total}
+					{currentIndex + 1}
+					/ {total}
 				</Typography>
 				<Progress value={currentIndex} max={total} />
 			</Stack>
@@ -85,7 +86,7 @@
 			</Typography>
 			<ScoreCard score={correctCount} {total} />
 			<Stack size={2} variant="ul">
-				{#each results as result}
+				{#each results as result, index (index)}
 					<Card
 						variant="li"
 						borderColor={result.correct ? 'success' : 'warning'}

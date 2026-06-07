@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Card from '../Card/Card.svelte';
-	import FlexColumn from '../FlexColumn/FlexColumn.svelte';
-	import Typography from '../Typography/Typography.svelte';
+import Card from '../Card/Card.svelte';
+import FlexColumn from '../FlexColumn/FlexColumn.svelte';
+import Typography from '../Typography/Typography.svelte';
 
-	type Props = {
-		score: number;
-		total: number;
-	};
+type Props = {
+	score: number;
+	total: number;
+};
 
-	let { score, total }: Props = $props();
+let { score, total }: Props = $props();
 </script>
 
 <Card variant="div" borderColor="gray" hasBorderLeft={false}>

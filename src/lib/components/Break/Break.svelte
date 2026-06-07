@@ -1,30 +1,30 @@
 <script lang="ts">
-	type Props = {
-		media: 'onlySp' | 'onlyPc';
-	};
+type Props = {
+	media: 'onlySp' | 'onlyPc';
+};
 
-	let { media }: Props = $props();
+let { media }: Props = $props();
 </script>
 
 <br class="break" data-media={media} />
 
 <style>
-	.break {
-		&[data-media='onlySp'] {
-			@media (min-width: 640px) {
-				display: none;
-			}
-			@media (max-width: 639px) {
-				display: block;
-			}
+.break {
+	&[data-media="onlySp"] {
+		@media (min-width: 640px) {
+			display: none;
 		}
-		&[data-media='onlyPc'] {
-			@media (max-width: 639px) {
-				display: none;
-			}
-			@media (min-width: 640px) {
-				display: block;
-			}
+		@media (max-width: 639px) {
+			display: block;
 		}
 	}
+	&[data-media="onlyPc"] {
+		@media (max-width: 639px) {
+			display: none;
+		}
+		@media (min-width: 640px) {
+			display: block;
+		}
+	}
+}
 </style>

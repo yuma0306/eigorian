@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" aria-hidden="true">
 	<g>
 		<path
 			d="M0,206.254v99.491c0,20.663,16.752,37.418,37.414,37.418h69.667V168.844H37.414
@@ -30,20 +30,20 @@
 </svg>
 
 <style>
+.icon {
+	display: block;
+	fill: var(--color-primary);
+}
+@media (min-width: 640px) {
 	.icon {
-		display: block;
-		fill: var(--color-primary);
+		width: calc(var(--spacing-2) * 1px);
+		height: calc(var(--spacing-2) * 1px);
 	}
-	@media (min-width: 640px) {
-		.icon {
-			width: calc(var(--spacing-2) * 1px);
-			height: calc(var(--spacing-2) * 1px);
-		}
+}
+@media (max-width: 639px) {
+	.icon {
+		width: calc(var(--calc-sp) * var(--spacing-2));
+		height: calc(var(--calc-sp) * var(--spacing-2));
 	}
-	@media (max-width: 639px) {
-		.icon {
-			width: calc(var(--calc-sp) * var(--spacing-2));
-			height: calc(var(--calc-sp) * var(--spacing-2));
-		}
-	}
+}
 </style>
