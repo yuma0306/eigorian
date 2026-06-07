@@ -5,7 +5,7 @@ let { youtubeId }: { youtubeId: Situation['youtubeId'] } = $props();
 </script>
 
 <a class="link" href={`https://youtu.be/${youtubeId}`} target="_blank" rel="noopener noreferrer">
-	出典: @PHOTOGLISH
+	出典
 </a>
 <!-- <iframe
 	width="100%"
