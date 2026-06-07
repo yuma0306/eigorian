@@ -37,7 +37,6 @@ let { youtubeId }: { youtubeId: Situation['youtubeId'] } = $props();
 .link {
 	display: block;
 	width: fit-content;
-	margin-inline: auto;
 	text-decoration: underline;
 	color: var(--color-primary);
 	transition: opacity var(--transition);
