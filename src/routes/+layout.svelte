@@ -1,13 +1,13 @@
 <script lang="ts">
-	import '$lib/styles/reset.css';
-	import '$lib/styles/app.css';
-	import Wrapper from '$lib/components/Wrapper/Wrapper.svelte';
-	import Main from '$lib/components/Main/Main.svelte';
-	import Footer from '$lib/components/Footer/Footer.svelte';
-	import Header from '$lib/components/Header/Header.svelte';
-	import { siteData } from '$lib/constants/siteData';
+import '$lib/styles/reset.css';
+import '$lib/styles/app.css';
+import Footer from '$lib/components/Footer/Footer.svelte';
+import Header from '$lib/components/Header/Header.svelte';
+import Main from '$lib/components/Main/Main.svelte';
+import Wrapper from '$lib/components/Wrapper/Wrapper.svelte';
+import { siteData } from '$lib/constants/siteData';
 
-	let { children } = $props();
+let { children } = $props();
 </script>
 
 <svelte:head>
@@ -37,8 +37,6 @@
 
 <Wrapper>
 	<Header />
-	<Main>
-		{@render children()}
-	</Main>
+	<Main> {@render children()} </Main>
 	<Footer />
 </Wrapper>
