@@ -14,7 +14,7 @@ import type { PageData } from './$types';
 
 let { data }: { data: PageData } = $props();
 const situation = $derived(data.situation);
-let showEnglish = $state(false);
+let showEnglish = $state(true);
 </script>
 
 <Inner>
