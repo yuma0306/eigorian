@@ -5,9 +5,9 @@ let { youtubeId }: { youtubeId: Situation['youtubeId'] } = $props();
 </script>
 
 <a class="link" href={`https://youtu.be/${youtubeId}`} target="_blank" rel="noopener noreferrer">
-	出典（埋め込み動画参照）: @PHOTOGLISH
+	出典: @PHOTOGLISH
 </a>
-<iframe
+<!-- <iframe
 	width="100%"
 	height="100%"
 	src={`https://www.youtube.com/embed/${youtubeId}`}
@@ -24,16 +24,16 @@ let { youtubeId }: { youtubeId: Situation['youtubeId'] } = $props();
 	referrerpolicy="strict-origin-when-cross-origin"
 	allowfullscreen
 	class="frame"
-></iframe>
+></iframe> -->
 
 <style>
-.frame {
+/* .frame {
 	width: min(100%, calc(800px + 2px));
 	border: 1px solid var(--color-gray);
 	margin-inline: auto;
 	display: block;
 	aspect-ratio: 16 / 9;
-}
+} */
 .link {
 	display: block;
 	width: fit-content;
