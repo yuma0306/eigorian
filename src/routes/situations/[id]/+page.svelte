@@ -27,14 +27,15 @@ let showEnglish = $state(true);
 			{#if situation.youtubeId}
 				<YoutubeFrame youtubeId={situation.youtubeId} />
 			{/if}
-			<ToggleRevealButton
-				expanded={showEnglish}
-				showLabel="👀 英語を表示"
-				hideLabel="🙈 英語を隠す"
-				ariaLabel="英語を表示"
-				onclick={() => (showEnglish = !showEnglish)}
-			/>
 		</FlexColumn>
+		<ToggleRevealButton
+			isFixed
+			expanded={showEnglish}
+			showLabel="👀"
+			hideLabel="🙈"
+			ariaLabel="英語を表示"
+			onclick={() => (showEnglish = !showEnglish)}
+		/>
 		<Stack size={2} variant="ul">
 			{#each situation.phrases as phrase, index (index)}
 				<Card variant="li" borderColor="gray" hasBorderLeft={true}>
